@@ -11,6 +11,7 @@
   <modules>
     <module>beans</module>
     <module>ui</module>
+    <module>camel-config</module>
   </modules>
 
   <properties>
@@ -19,15 +20,35 @@
     <maven.compiler.target>1.8</maven.compiler.target>
     <failOnMissingWebXml>false</failOnMissingWebXml>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <junit.version>4.12</junit.version>
+    <junit.jupiter.version>5.0.2</junit.jupiter.version>
+    <junit.platform.version>1.0.2</junit.platform.version>
   </properties>
 
   <dependencyManagement>
+    <!--Module versions-->
     <dependencies>
       <dependency>
         <groupId>cloverfox.github</groupId>
         <artifactId>beans</artifactId>
         <version>${project.version}</version>
       </dependency>
+
+      <!--Testing-->
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>${junit.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-core</artifactId>
+        <version>2.13.0</version>
+        <scope>test</scope>
+      </dependency>
+
+      <!--Wildfly BOM-->
       <dependency>
         <groupId>org.wildfly.swarm</groupId>
         <artifactId>bom-all</artifactId>
