@@ -24,6 +24,11 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
+        <groupId>cloverfox.github</groupId>
+        <artifactId>beans</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
         <groupId>org.wildfly.swarm</groupId>
         <artifactId>bom-all</artifactId>
         <version>${version.wildfly.swarm}</version>
