@@ -34,29 +34,28 @@
     </build>
 
     <dependencies>
+        <!-- wildfly swarm should auto detect the fractures, but it does not, so put them here-->
         <dependency>
-            <groupId>cloverfox.github</groupId>
-            <artifactId>beans</artifactId>
+            <groupId>org.wildfly.swarm</groupId>
+            <artifactId>jaxrs</artifactId>
         </dependency>
-        <!-- WildFly Swarm Fractions (not needed, auto detect works this out for us, leaving here to remind myself-->
-        <!--<dependency>-->
-            <!--<groupId>org.wildfly.swarm</groupId>-->
-            <!--<artifactId>ejb</artifactId>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>org.wildfly.swarm</groupId>-->
-            <!--<artifactId>jaxrs</artifactId>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>org.wildfly.swarm</groupId>-->
-            <!--<artifactId>cdi</artifactId>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.wildfly.swarm</groupId>
+            <artifactId>camel-ejb</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.wildfly.swarm</groupId>
+            <artifactId>camel-cdi</artifactId>
+        </dependency>
+
         <!-- Java EE 7 dependency -->
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
-            <version>7.0</version>
-            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>cloverfox.github</groupId>
+            <artifactId>beans</artifactId>
         </dependency>
     </dependencies>
 

@@ -1,6 +1,5 @@
 package cloverfox.github.demo.rest;
 
-
 import cloverfox.github.demo.Hello;
 
 import javax.ejb.EJB;

@@ -11,7 +11,6 @@
   <modules>
     <module>beans</module>
     <module>ui</module>
-    <module>camel-config</module>
   </modules>
 
   <properties>
@@ -46,6 +45,14 @@
         <artifactId>mockito-core</artifactId>
         <version>2.13.0</version>
         <scope>test</scope>
+      </dependency>
+
+      <!--Other deps-->
+      <dependency>
+        <groupId>javax</groupId>
+        <artifactId>javaee-api</artifactId>
+        <version>7.0</version>
+        <scope>provided</scope>
       </dependency>
 
       <!--Wildfly BOM-->

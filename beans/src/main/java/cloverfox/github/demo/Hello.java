@@ -15,4 +15,8 @@ public class Hello {
     public String returnHi(){
         return "HI";
     }
+
+    public void printHi(){
+        System.out.println("HI HAS BEEN CALLED");
+    }
 }
