@@ -1,5 +1,6 @@
 package cloverfox.github.demo.camel;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.camel.CamelContext;
 import org.apache.camel.builder.RouteBuilder;
 
@@ -11,13 +12,14 @@ import javax.naming.NamingException;
 
 @Singleton
 @Startup
+@Slf4j
 public class CamelContextConfigurer {
     @EJB
     private CamelContextFactory camelContextFactory;
 
     @PostConstruct
     public void configureCamelContext() {
-        System.out.println("CREATING CAMEL CONTEXT");
+        log.debug("creating camel context");
         CamelContext camelContext = null;
         try {
             camelContext = camelContextFactory.createCamelContext();

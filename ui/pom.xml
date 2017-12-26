@@ -21,6 +21,13 @@
                 <groupId>org.wildfly.swarm</groupId>
                 <artifactId>wildfly-swarm-plugin</artifactId>
                 <version>${version.wildfly.swarm}</version>
+                <!--enable this to debug-->
+                <!--<configuration>-->
+                    <!--<debugPort>5005</debugPort>-->
+                    <!--<properties>-->
+                        <!--<swarm.debug.port>5005</swarm.debug.port>-->
+                    <!--</properties>-->
+                <!--</configuration>-->
 
                 <executions>
                     <execution>
@@ -46,6 +53,11 @@
         <dependency>
             <groupId>org.wildfly.swarm</groupId>
             <artifactId>camel-cdi</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
         </dependency>
 
         <!-- Java EE 7 dependency -->

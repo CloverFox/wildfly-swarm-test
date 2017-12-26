@@ -1,5 +1,6 @@
 package cloverfox.github.demo.properties;
 
+import lombok.extern.slf4j.Slf4j;
 import org.ehcache.UserManagedCache;
 
 import javax.annotation.PostConstruct;
@@ -10,6 +11,7 @@ import java.util.Optional;
 import static org.ehcache.config.builders.UserManagedCacheBuilder.newUserManagedCacheBuilder;
 
 @Singleton
+@Slf4j
 public class PropertyCache {
 
     private UserManagedCache<String,String> cache;
@@ -20,7 +22,7 @@ public class PropertyCache {
         cache = newUserManagedCacheBuilder(String.class, String.class)
                 .identifier("data-cache")
                 .build(true);
-        System.out.println("Cache setup is done");
+        log.info("Cache setup is done");
     }
 
     public Optional<String> getFromCache(String itemName){

@@ -1,22 +1,24 @@
 package cloverfox.github.demo;
 
-import javax.annotation.PostConstruct;
-import javax.ejb.Startup;
+import lombok.extern.slf4j.Slf4j;
+
 import javax.ejb.Singleton;
+import javax.ejb.Startup;
 
 @Singleton
 @Startup
+@Slf4j
 public class Hello {
-    @PostConstruct
-    public void hi(){
-        System.out.println("HELLO THERE");
-    }
+
+    private int i = 0;
 
     public String returnHi(){
-        return "HI";
+        i = ++i;
+        printHi(i);
+        return "HI" + i;
     }
 
-    public void printHi(){
-        System.out.println("HI HAS BEEN CALLED");
+    private void printHi(int i){
+        log.debug("HI " + i + " HAS BEEN CALLED");
     }
 }

@@ -1,12 +1,17 @@
 package cloverfox.github.demo.properties;
 
+import lombok.extern.slf4j.Slf4j;
 import org.ini4j.Wini;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ejb.Singleton;
+import javax.ejb.Startup;
 import java.util.Optional;
 
 @Singleton
+@Slf4j
+@Startup
 public class PropertyLoader {
 
     @EJB
@@ -15,11 +20,12 @@ public class PropertyLoader {
     @EJB
     PropertyFileLoader propertyFileLoader;
 
+    @PostConstruct
     public void loadProperties(){
         String appDataLocation = System.getProperty("user.home");
 
         String propertyLocation = appDataLocation + "/.demo/config.ini";
-        System.out.println("loading properties from " + propertyLocation);
+        log.info("loading properties from " + propertyLocation);
 
         Optional<Wini> iniOptional;
         Wini ini;
@@ -36,14 +42,14 @@ public class PropertyLoader {
                 // list name value pairs within a specific section
                 for (String name : ini.get("main").keySet()) {
                     String property = ini.get("main", name);
-                    System.out.println(name + " = " + property);
+                    log.info(name + " = " + property);
                     propertyCache.putToCache(name, property);
                 }
             } else {
-                System.out.println("could not find main section in ini file");
+                log.warn("could not find main section in ini file");
             }
         } else {
-            System.out.println("problem getting ini file");
+            log.warn("problem getting ini file");
         }
     }
 }
