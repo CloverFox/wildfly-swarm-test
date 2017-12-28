@@ -42,7 +42,6 @@ public class PropertyLoader {
                 // list name value pairs within a specific section
                 for (String name : ini.get("main").keySet()) {
                     String property = ini.get("main", name);
-                    log.info(name + " = " + property);
                     propertyCache.putToCache(name, property);
                 }
             } else {
