@@ -33,12 +33,13 @@ public class CamelContextConfigurer {
                 //for single file
                 // from("file://C:/in/?fileName=MyFile.txt&charset=utf-8")
                 from("file://C:/in/")
-                        .to("ejb:Hello?method=printHi");
+                        .to("ejb:S3Uploader?method=upload");
             }
         };
         if (camelContext != null) {
             try {
                 camelContext.addRoutes(route);
+                camelContext.start();
             } catch (Exception e) {
                 e.printStackTrace();
             }
